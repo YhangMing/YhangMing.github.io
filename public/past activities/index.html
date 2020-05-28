@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ActivityTable</title>
+
+<style>
+.content{
+    display: none;
+}
+.show{
+    display: block;
+}
+#buttons{
+    background-color: palevioletred;
+    height: 30px;
+    
+}
+.button{
+    margin: -1.8px;
+    margin-top: 0px;
+    height: 100%;
+    border: none;
+    background-color: grey;
+}
+button :hover{
+    background-color: honeydew;
+}
+.active{
+    background-color: hotpink;
+    
+}
+
+}
+</style>
+</head>
+<body>
+    <div id="buttons">
+        <button id="btn1" class="button" onclick="tab_one()">Tab 1</button>
+        <button id="btn2" class="button" onclick="tab_two()">Tab 2</button>
+        <button id="btn3" class="button" onclick="tab_three()">Tab 3</button>
+    </div>
+    <div id="one" class="show">
+        <h1>Tab 1 Content</h1>
+        <p>This is the content of Tab 1</p>
+        
+    </div>
+    <div id="two" class="content">
+        <h1>Tab 2 Content</h1>
+        <p>This is the content of Tab 2</p>
+       
+    </div> 
+    <div id="three" class="content">
+        <h1>Tab 3 Content</h1>
+        <p>This is the content of Tab 3</p>
+        <img src="https://velvet-mag.com/wp-content/uploads/2018/08/FA18_QIXI_YANG_MI_1.jpg">
+        <img src="https://i0.wp.com/38jiejie.com/wp-content/uploads/2019/11/Zanilia-Zhao-Liyings-Post-Got-Netizens-Speculating-if-She-Was-Voicing-Out-Displeasure-with-Production-on-22Legend-of-Fei22-Set-Weibo_11.15.19.jpg?resize=752%2C440&ssl=1">
+        <img src="https://lh5.googleusercontent.com/proxy/iu14B1ZN8g3PunaT353t1kmDjr8XmtsWVecKMlld-Z6I_cqdX2goF3QIJj9fBSb-WgEIdmV_QDq5QFSAsdu5YSzKFs2KjJTm61wqd8ICAuODzrcDl3Q81A">
+    </div>
+
+
+    <*/script type="text/javascript">
+    function tab_one(){
+       document.getElementById("one").className = "show";
+       document.getElementById("two").className = "content";
+       document.getElementById("three").className = "content";
+    }
+    function tab_two(){
+        document.getElementById("two").className = "show";
+        document.getElementById("one").className = "content";
+        document.getElementById("three").className = "content";
+    }
+    function tab_three(){
+        document.getElementById("three").className = "show";
+        document.getElementById("one").className = "content";
+        document.getElementById("two").className = "content";
+    }
+    
+</*/script>
+<script>
+    function activateTab(tabNumber){
+        var tabButtons = document.getElementsByClassName("tabButton");
+        var tabContents = document.getElementsByClassName("tabcontent");
+
+        for(let x = 0; x < tabButtons.length; x++){
+            if (tabNumber != x){
+                tabButtons[x].classList.remove("active");
+                tabContents[x].style.display = "none";
+            }
+            else{
+                tabButtons[tabNumber].classList.add("active");
+                tabContents[tabNumber].style.display = "block";
+            }
+        }
+    }
+</script>
+    
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+<style>
+.tab{
+    overflow: hidden;
+    border: 1px solid white;
+    background-color: lightgrey;
+}
+.tabButton{
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    padding: 14px 16px;
+    font-size: 17px;
+}
+.tabButton{
+    
+}
+</style>
+</head>
+<body>
+    <div class="tab">
+        <button class="tabButton active" onclick="activateTab(0)">Tab 1</button>
+        <button class="tabButton " onclick="activateTab(1)">Tab 2</button>
+        <button class="tabButton " onclick="activateTab(2)">Tab 3</button>
+    </div>
+    <div class="tabcontent" style="display:block">
+        <h1>Tab 1 Content</h1>
+        <p>This is the content of Tab 1</p>
+    </div>
+    <div class="tabcontent" >
+        <h1>Tab 2 Content</h1>
+        <p>This is the content of Tab 2</p>
+    </div>
+    <div class="tabcontent" >
+        <h1>Tab 3 Content</h1>
+        <p>This is the content of Tab 3</p>
+    </div>
+
+    <script>
+        function activateTab(tabNumber){
+            var tabButtons = document.getElementsByClassName("tabButton");
+            var tabContents = document.getElementsByClassName("tabcontent");
+    
+            for(let x = 0; x < tabButtons.length; x++){
+                if (tabNumber != x){
+                    tabButtons[x].classList.remove("active");
+                    tabContents[x].style.display = "none";
+                }
+                else{
+                    tabButtons[tabNumber].classList.add("active");
+                    tabContents[tabNumber].style.display = "block";
+                }
+            }
+        }
+    </script>
+    
+</body>
+</html>

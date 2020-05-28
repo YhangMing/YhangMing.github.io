@@ -1,0 +1,102 @@
+body{
+    background-image: url(https://lh4.googleusercontent.com/proxy/KiRuEeNMr0YUgh6AnaZI7xF79zymKVSonFeRTeNErFWExl6GI-z9I0dkdIQf1uk9kOu66cW00cgB8pjcPg0p6FdWp94iHiFpx1ncEvtWcnjYEKGBioa97Lc8Cv-72aEcQjB3WIOZMpOeUL0JWZuUnurhIZR1_4_ydWGpxPuJUsOcmx8qrL9Tv2zZ_JNEqcMi2LPKgUoIqTlPmkkJcPzWKXB0nwldI1j1okG5UWgbU6-bJIzdW42zZMiqPBH3Wveq5t5Jhds=s0-d);
+    background-size: 100vw;
+}
+.main img{
+    width: 100%;
+}
+hr{
+margin: 10px -50px;
+border: 0;
+border-top: 1px solid blue;
+margin-bottom: 40px;
+}
+div.container{ 
+width: 40%;
+height: 50%;
+margin-left: 35%;
+margin-top: 10%;
+font-family: 'Raleway', sans-serif;
+}
+div.main{
+background-image: url(../images/c1.gif);
+background-repeat: no-repeat;
+background-size: 100% 100%;
+background-position: center;
+width: 300px;
+height: 400px;
+padding: 10px 50px 25px;
+border: 3px solid orange;
+border-radius: 10px;
+font-family: raleway;
+float:left;
+margin-top:15px;
+}
+input[type=text],input[type=password]{
+width: 100%;
+height: 40px;
+padding: 5px;
+margin-bottom: 25px;
+margin-top: 5px;
+border: 2px solid blue;
+color: blue;
+font-size: 16px;
+border-radius: 5px;
+}
+label{
+padding: 20px;
+padding-top: 30px;
+color: #464646;
+text-shadow: 0 1px 0 #fff;
+font-size: 30px;
+font-weight: bold;
+}
+center{
+font-size:32px;
+}
+.back{
+text-decoration: none;
+border: 1px solid rgb(0, 143, 255);
+background-color: rgb(0, 214, 255);
+padding: 3px 20px;
+border-radius: 2px;
+color: black;
+}
+input[type=button]{
+font-size: 16px;
+background: linear-gradient(#ffbc00 5%, #ffdd7f 100%);
+border: 1px solid #e5a900;
+color: #4E4D4B;
+font-weight: bold;
+cursor: pointer;
+width: 100%;
+border-radius: 5px;
+padding: 10px 0;
+outline:none;
+}
+input[type=button]:hover{
+background: linear-gradient(#ffdd7f 5%, #ffbc00 100%);
+}
+.btn{
+  box-sizing: border-box;
+  appearance: none;
+  background-color: transparent ;
+  border: 2px solid red; 
+  cursor: pointer;
+  display: flex;
+  align-self: center;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  margin: 20px;
+  padding: 1.2em 2.8em;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+
+}
+ 
+
+  

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+<style>
+table{
+    border: solid 2px black;
+    width: 100%;
+}
+td{
+    width: 100px;
+}
+button{
+    width: 100%;
+    background-color: deeppink;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#btn1{
+    margin-top: 5px;
+    margin-left: 92%;
+    width: 100px;
+}
+tr,td{
+    border: black 1px solid;   
+}
+</style>
+</head>
+<body>
+    <table id="table" >
+        <tr>
+        <td>LAST NAME</td>
+        <td>FIRST NAME</td>
+        <td>EMAIL ADRESS</td>
+        <td>CONTACT NUMBER</td>
+        <td></td>
+    </tr>
+    </table>
+
+    <div id="button1">
+        <button id="btn1" class="button" onclick="clicked()">ADD CONTACT </button>
+    </div>
+
+   <script type="text/javascript">
+   let ctr = 1;
+   var id = 0;
+    function clicked(){
+        var counter = 0;
+        var lastname = prompt("Enter Lastname:");
+        var firstname = prompt("Enter Firstname:");
+        var email= prompt("Enter Email Address:");
+        var contact = prompt("Enter Contact Number:");
+
+        var arr = [lastname,firstname,email,contact];
+        var insert = document.getElementById("table");
+        console.log(arr)
+        var row = insert.insertRow(ctr);
+        ctr++;
+
+        while(counter<5){
+            if(counter<4){
+                var cell = row.insertCell(counter);
+                cell.textContent = arr[counter];
+                cell.value = counter;
+            }else{
+                var cell = row.insertCell(counter);
+                 cell.appendChild(document.createElement("button")).innerHTML = "Delete";
+            }
+            counter++; 
+            
+        }
+       
+        var x = id;
+        document.getElementsByTagName("button")[x].onclick = function() {
+            document.getElementsByTagName("tr")[x+1].style = "Display: none";
+        }
+         
+        id++
+
+        function converter(x){
+            var y = 0;
+            if(x == 0){
+                y = x + 5;
+            }
+            else{
+                y = (x + 1) * 5;
+            }
+            return y;
+        }
+        var td = document.getElementsByTagName("td");    
+        var index = converter(x);
+        td[index].addEventListener("click",updateContact);
+        td[index + 1].addEventListener("click",updateContact);
+        td[index + 2].addEventListener("click",updateContact);
+        td[index + 3].addEventListener("click",updateContact);
+  
+    }
+    
+    function updateContact(event){
+        var arr = ["lastname","firstname","email","contact"];
+        var temptext = event.srcElement.innerText;
+        var n = event.srcElement.value;
+        var textUpdate = prompt(arr[n], event.srcElement.innerText);
+        if (textUpdate == null){
+            event.srcElement.innerText = temptext;
+        }
+        else{
+            event.srcElement.innerText = textUpdate;
+        }
+    } 
+   </script>
+    
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>korean.com</title>
+    <style>
+        body {
+            background-image: url(https://cdn57.androidauthority.net/wp-content/uploads/2015/11/00-best-backgrounds-and-wallpaper-apps-for-android.jpg);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        tr,
+        td {
+            border: darkcyan 5px solid;
+            color: white;
+        }
+
+        th {
+            font-size: 30px;
+            background-image: url(https://www.thinkright.me/wp-content/uploads/2019/09/Untitled-design-27.jpg);
+            border: palevioletred 6px solid;
+        }
+
+        td {
+            font-size: 20px;
+            font-weight: bolder;
+        }
+
+        h1 {
+            color: plum;
+        }
+
+        #myInput {
+            box-sizing: border-box;
+            appearance: none;
+            background-color: transparent;
+            border: 2px solid pink;
+            cursor: pointer;
+            display: flex;
+            align-self: center;
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 1;
+            margin-top: 30px;
+            text-decoration: none;
+            text-align: center;
+            width: 200px;
+            height: 40px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            margin-left: 80%;
+        }
+        #myInput:focus{
+            color: powderblue;
+            outline: 0;
+        }
+        #myInput:hover{
+            box-shadow: 0 0 10px chocolate inset, 0 0 10px 4px chocolate ;
+        }
+
+        .btn {
+            box-sizing: border-box;
+            appearance: none;
+            background-color: transparent;
+            border: 2px solid pink;
+            cursor: pointer;
+            display: flex;
+            align-self: center;          
+            line-height: 1;
+            margin-top: -30px;
+            margin-left: 20px;
+            width: 75px;
+            height: 30px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        .btn:hover,
+        .btn:focus {
+            color: #fff;
+            outline: 0;
+        }
+
+        #home {
+            border-color: plum;
+            color: #fff;
+            box-shadow: 0 0 40px 40px palevioletred inset, 0 0 0 0 palevioletred;
+            transition: all 150ms ease-in-out;
+        }
+        #home:hover{
+            box-shadow: 0 0 10px deeppink inset,0 0 10px 4px deeppink;
+        }
+        .btn a{
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: 400;
+            text-align: center;
+        }
+        .btn a:hover{
+            color: cyan;
+
+        }
+            
+    </style>
+</head>
+
+<body>
+    <input class="search" id="myInput" type="text" placeholder="Search..">
+    <button class="btn" id="home"><a href="../public/home.html">Home</a></button>
+    <div>
+        <center>
+            <h1> Korean Movies List</h1>
+        </center>
+
+        <table id="movieTable" class="table " border="20" style="width: 100%; border: 5px solid chocolate;">
+            <tr>
+                <th>Name</th>
+                <th>Actro/Actress</th>
+                <th>Image</th>
+
+
+            </tr>
+        </table>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("GET", "https://testapi.io/api/yhang/YhangMing", true);
+            xhttp.send();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200 && this.statusText == "OK") {
+                    var data = JSON.parse(this.responseText);
+                    console.log(data)
+                    for (var e of data.Korean) {
+                        $("#movieTable").append("<tr border='30' class= 'r'><td border='30'>" + e.name + "</td><td>" + e.char + "</td><td><img src=" + e.image + " height='100' width='100'/></td></tr>")
+                    }
+                }
+            };
+
+        });
+        $(document).ready(function () {
+            $("#myInput").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#movieTable .r").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>
